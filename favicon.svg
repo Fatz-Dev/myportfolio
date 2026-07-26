@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <path d="M50 10 L20 90 L35 90 L42.5 70 L57.5 70 L65 90 L80 90 L50 10 Z M46 60 L50 45 L54 60 Z" fill="#C06C52" stroke="#3D3329" stroke-width="4" stroke-linejoin="round" />
+  <!-- Hand drawn imperfection -->
+  <path d="M50 8 C52 8, 48 12, 50 10 M18 90 C15 92, 22 88, 20 90" stroke="#3D3329" stroke-width="2" stroke-linecap="round"/>
+</svg>

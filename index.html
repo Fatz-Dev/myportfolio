@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FatzDev | Software Engineer</title>
+    <meta property="og:title" content="FatzDev | Software Engineer" />
+    <meta property="og:description" content="Portfolio of FatzDev, specialized in building scalable architectures and functional user interfaces." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://fatzdev.com" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="FatzDev | Software Engineer" />
+    <meta name="twitter:description" content="Portfolio of FatzDev, specialized in building scalable architectures and functional user interfaces." />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1200&auto=format&fit=crop" />
+    <meta name="description" content="Portfolio of FatzDev, specialized in building scalable architectures and functional user interfaces." />
+    <link rel="icon" type="image/svg+xml" href="assets\.aistudio\logo.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-sand text-ink font-sans antialiased selection:bg-terra selection:text-sand">
+    <!-- Preloader -->
+    <div id="page-loader" class="fixed inset-0 bg-sand z-[999] flex flex-col items-center justify-center transition-all duration-700">
+        <svg class="w-16 h-16 text-terra animate-[spin_3s_linear_infinite] mb-6" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round">
+            <path d="M50 15 C 75 15, 85 35, 85 50 C 85 75, 65 85, 50 85 C 35 85, 15 75, 15 50 C 15 35, 25 15, 50 15" stroke-dasharray="150" stroke-dashoffset="30" />
+            <path d="M50 15 C 52 13, 48 17, 50 15" stroke-width="2" />
+        </svg>
+        <span class="font-mono text-ink text-sm italic">Crafting experience...</span>
+    </div>
+
+    <div id="scroll-progress-container" class="fixed top-0 left-0 w-full h-2 z-[100] pointer-events-none">
+        <div id="scroll-progress" class="h-full w-0 bg-sage border-b-2 border-r-2 border-ink rounded-r-full transition-all duration-75"></div>
+    </div>
+    <div id="custom-cursor" class="hidden md:flex items-center justify-center text-center">
+        <span id="custom-cursor-text" class="text-[10px] font-mono font-bold tracking-wider text-terra uppercase select-none opacity-0 transition-opacity duration-200 pointer-events-none"></span>
+    </div>
+    <div class="noise-overlay"></div>
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 md:top-6 transition-all duration-300">
+        <!-- Mobile Navbar -->
+        <div class="flex md:hidden items-center justify-between px-6 py-4 bg-sand/90 backdrop-blur-sm dark-bg-nav">
+            <a href="#" class="font-mono font-bold text-2xl italic tracking-tight text-terra">FZ</a>
+            <div class="flex items-center gap-2">
+                <button id="dark-mode-toggle-mobile" class="p-2 text-ink hover:text-terra transition-colors cursor-none" aria-label="Toggle Dark Mode">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </button>
+                <button id="mobile-menu-toggle" class="p-2 text-ink">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16M4 6h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Desktop Pill Navbar -->
+        <div class="hidden md:flex justify-center w-full px-4 pointer-events-none">
+            <div class="flex items-center gap-2 lg:gap-6 bg-sand/90 backdrop-blur-md px-2 py-2 rounded-full border border-ink/30 shadow-[0_8px_30px_rgb(0,0,0,0.08)] pointer-events-auto">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-2 pl-4 pr-4 border-r border-ink/10 font-mono font-bold text-lg text-ink cursor-none">
+                    FatzDev.
+                </a>
+                
+                <!-- Links -->
+                <div class="flex items-center gap-6 font-mono text-sm font-medium text-ink/70 px-2">
+                    <a href="#profile" class="nav-link hover:text-ink transition-colors cursor-none">Home</a>
+                    <a href="#projects" class="nav-link hover:text-ink transition-colors cursor-none">Projects</a>
+                    <a href="#skills" class="nav-link hover:text-ink transition-colors cursor-none">Skills</a>
+                    <a href="#experience" class="nav-link hover:text-ink transition-colors cursor-none">Experience</a>
+                    <a href="#certificates" class="nav-link hover:text-ink transition-colors cursor-none">Certificates</a>
+                </div>
+
+                <!-- Actions -->
+                <div class="flex items-center gap-2 pl-4 pr-1 border-l border-ink/10">
+                    <button id="dark-mode-toggle" class="p-2 text-ink/70 hover:text-ink transition-colors rounded-full hover:bg-ink/5 cursor-none" aria-label="Toggle Dark Mode">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                    </button>
+                    <a href="#contact" class="bg-ink text-sand px-6 py-2 rounded-full font-mono text-sm font-bold hover:bg-terra transition-colors cursor-none">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-[100] flex flex-col pointer-events-none items-center justify-center overflow-hidden">
+        <div id="mobile-menu-bg" class="absolute inset-0 bg-sand translate-y-full rounded-t-[100%] transition-all duration-700 ease-in-out bg-[url('data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M54.627 0l.83.83v58.34h-58.34l-.83-.83v-58.34h58.34zm-5.074 5.074H5.074v49.852h44.479V5.074z\' fill=\'%232c3639\' fill-opacity=\'0.03\' fill-rule=\'evenodd\'/%3E%3C/svg%3E')] bg-repeat"></div>
+        <button id="mobile-menu-close" class="absolute top-6 right-6 p-2 text-ink opacity-0 transition-opacity duration-300 delay-500 z-10">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+        <div class="flex flex-col items-center gap-10 font-mono text-4xl opacity-0 transition-opacity duration-300 delay-300 z-10" id="mobile-menu-content">
+            <a href="#profile" class="nav-link-mobile hover:text-terra transition-colors decoration-wavy underline-offset-4 hover:underline">Home</a>
+            <a href="#projects" class="nav-link-mobile hover:text-terra transition-colors decoration-wavy underline-offset-4 hover:underline">Projects</a>
+            <a href="#skills" class="nav-link-mobile hover:text-terra transition-colors decoration-wavy underline-offset-4 hover:underline">Skills</a>
+            <a href="#experience" class="nav-link-mobile hover:text-terra transition-colors decoration-wavy underline-offset-4 hover:underline">Experience</a>
+            <a href="#certificates" class="nav-link-mobile hover:text-terra transition-colors decoration-wavy underline-offset-4 hover:underline">Certificates</a>
+            <a href="#contact" class="nav-link-mobile hover:text-terra transition-colors decoration-wavy underline-offset-4 hover:underline">Contact</a>
+        </div>
+    </div>
+
+    <main class="pt-24 max-w-7xl mx-auto">
+        <!-- Back to top -->
+        <button id="back-to-top" aria-label="Back to top" class="fixed bottom-8 right-8 w-12 h-12 bg-sand border-drawn text-ink z-50 flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:bg-terra hover:border-terra hover:text-sand cursor-none translate-y-4 shadow-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 15-6-6-6 6"/></svg>
+        </button>
+
+        <!-- Hero Section -->
+        <section id="profile" class="min-h-[85vh] flex flex-col lg:flex-row items-center justify-center px-6 md:px-12 py-12 gap-12 lg:gap-20">
+            <div class="w-full lg:w-1/2 flex flex-col items-start">
+                <div class="inline-block bg-sage/20 text-sage px-4 py-1 border-drawn mb-8 reveal">
+                    <span class="font-mono italic font-medium">Architecting systems</span>
+                </div>
+                <h1 class="font-mono text-5xl md:text-7xl font-bold leading-tight mb-6 reveal">
+                    Web <br/>
+                    <span class="text-terra italic font-light">Developer.</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-ink/80 leading-relaxed max-w-lg mb-10 reveal">
+                    I'm FatzDev, a <span id="typing-role" class="text-terra font-mono font-bold border-r-2 border-terra pr-1">Software Engineer</span> specialized in building scalable architectures and functional user interfaces.
+                </p>
+                <div class="flex flex-wrap gap-4 reveal">
+                    <a href="#projects" class="bg-ink text-sand px-8 py-3 text-lg border-drawn hover:bg-terra hover:border-terra transition-colors">
+                        See my work
+                    </a>
+                    <a href="#contact" class="bg-transparent text-ink px-8 py-3 text-lg border-drawn-alt hover:bg-ink/5 transition-colors">
+                        Say hello
+                    </a>
+                </div>
+            </div>
+            <div class="w-full lg:w-1/2 flex justify-center reveal">
+                <div class="relative w-72 h-72 md:w-96 md:h-96">
+                    <div class="absolute inset-0" data-parallax="0.04">
+                        <div class="w-full h-full bg-sage organic-blob opacity-30 transform translate-x-4 translate-y-4"></div>
+                    </div>
+                    <div class="absolute inset-0" data-parallax="-0.02">
+                        <div class="w-full h-full bg-terra organic-blob opacity-20 transform -translate-x-3 -translate-y-2"></div>
+                    </div>
+                    <div class="absolute inset-0" data-parallax="0.08">
+                        <img src="assets\.aistudio\logo.jpg" alt="Portrait" class="w-full h-full object-cover organic-blob border-drawn sepia-[0.3]">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-24 px-6 md:px-12">
+            <div class="mb-16 text-center">
+                <h2 class="section-title font-mono text-4xl md:text-5xl font-bold mb-4 reveal">Selected Works</h2>
+                <div class="w-24 h-1 bg-terra mx-auto organic-blob mb-8 reveal"></div>
+                <div id="project-filters" class="flex flex-wrap justify-center gap-3 reveal">
+                    
+                    <!-- Skeleton Loader -->
+                    <div class="relative pl-6 md:pl-10 border-l-2 border-ink/20 border-dashed animate-pulse mb-12">
+                        <div class="absolute left-[-11px] top-1 w-5 h-5 bg-sand border-drawn border-ink rounded-full"></div>
+                        <div class="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-6 mb-4">
+                            <div class="h-8 bg-ink/10 rounded w-48 border-drawn-alt"></div>
+                            <div class="h-6 bg-ink/10 rounded w-32 border-drawn"></div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="h-4 bg-ink/10 rounded w-full max-w-2xl border-drawn"></div>
+                            <div class="h-4 bg-ink/10 rounded w-5/6 max-w-2xl border-drawn-alt"></div>
+                        </div>
+                    </div>
+                    <div class="relative pl-6 md:pl-10 border-l-2 border-ink/20 border-dashed animate-pulse mb-12">
+                        <div class="absolute left-[-11px] top-1 w-5 h-5 bg-sand border-drawn border-ink rounded-full"></div>
+                        <div class="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-6 mb-4">
+                            <div class="h-8 bg-ink/10 rounded w-56 border-drawn-alt"></div>
+                            <div class="h-6 bg-ink/10 rounded w-40 border-drawn"></div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="h-4 bg-ink/10 rounded w-full max-w-2xl border-drawn"></div>
+                            <div class="h-4 bg-ink/10 rounded w-4/5 max-w-2xl border-drawn-alt"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 transition-opacity duration-300" id="projects-container">
+                
+                <!-- Skeleton Loader -->
+                <div class="border-drawn bg-ink/5 p-6 h-full flex flex-col relative overflow-hidden animate-pulse">
+                    <div class="w-full h-40 mb-6 organic-blob bg-ink/10 border-drawn-alt"></div>
+                    <div class="h-4 bg-ink/10 w-16 mb-4 border-drawn rounded"></div>
+                    <div class="h-6 bg-ink/10 w-3/4 mb-4 border-drawn-alt rounded"></div>
+                    <div class="h-4 bg-ink/10 w-1/2 mt-auto border-drawn rounded"></div>
+                </div>
+                <div class="border-drawn bg-ink/5 p-6 h-full flex flex-col relative overflow-hidden animate-pulse">
+                    <div class="w-full h-40 mb-6 organic-blob bg-ink/10 border-drawn"></div>
+                    <div class="h-4 bg-ink/10 w-16 mb-4 border-drawn-alt rounded"></div>
+                    <div class="h-6 bg-ink/10 w-2/3 mb-4 border-drawn rounded"></div>
+                    <div class="h-4 bg-ink/10 w-1/2 mt-auto border-drawn-alt rounded"></div>
+                </div>
+                <div class="border-drawn bg-ink/5 p-6 h-full flex flex-col relative overflow-hidden animate-pulse">
+                    <div class="w-full h-40 mb-6 organic-blob bg-ink/10 border-drawn-alt"></div>
+                    <div class="h-4 bg-ink/10 w-16 mb-4 border-drawn rounded"></div>
+                    <div class="h-6 bg-ink/10 w-3/4 mb-4 border-drawn-alt rounded"></div>
+                    <div class="h-4 bg-ink/10 w-1/2 mt-auto border-drawn rounded"></div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-24 px-6 md:px-12 overflow-hidden relative">
+            <div class="mb-16 text-center">
+                <h2 class="section-title font-mono text-4xl md:text-5xl font-bold mb-4 text-ink reveal">Skill Cloud</h2>
+                <div class="w-16 h-1 bg-sage mx-auto organic-blob mb-8 reveal"></div>
+            </div>
+            <div id="skill-cloud" class="relative w-full max-w-5xl mx-auto h-[400px] border-drawn bg-ink/5 overflow-hidden flex items-center justify-center">
+                <!-- Injected via JS -->
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-24 px-6 md:px-12">
+            <div class="bg-ocher/10 border-drawn p-8 md:p-16">
+                <div class="mb-12">
+                    <h2 class="section-title font-mono text-4xl md:text-5xl font-bold mb-4 text-ink reveal">My Journey</h2>
+                    <div class="w-16 h-1 bg-sage organic-blob reveal"></div>
+                </div>
+                <div class="space-y-12" id="experience-container">
+
+                    <!-- Skeleton Loader -->
+                    <div class="relative pl-6 md:pl-10 border-l-2 border-ink/20 border-dashed animate-pulse mb-12">
+                        <div class="absolute left-[-11px] top-1 w-5 h-5 bg-sand border-drawn border-ink rounded-full"></div>
+                        <div class="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-6 mb-4">
+                            <div class="h-8 bg-ink/10 rounded w-48 border-drawn-alt"></div>
+                            <div class="h-6 bg-ink/10 rounded w-32 border-drawn"></div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="h-4 bg-ink/10 rounded w-full max-w-2xl border-drawn"></div>
+                            <div class="h-4 bg-ink/10 rounded w-5/6 max-w-2xl border-drawn-alt"></div>
+                        </div>
+                    </div>
+                    <div class="relative pl-6 md:pl-10 border-l-2 border-ink/20 border-dashed animate-pulse mb-12">
+                        <div class="absolute left-[-11px] top-1 w-5 h-5 bg-sand border-drawn border-ink rounded-full"></div>
+                        <div class="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-6 mb-4">
+                            <div class="h-8 bg-ink/10 rounded w-56 border-drawn-alt"></div>
+                            <div class="h-6 bg-ink/10 rounded w-40 border-drawn"></div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="h-4 bg-ink/10 rounded w-full max-w-2xl border-drawn"></div>
+                            <div class="h-4 bg-ink/10 rounded w-4/5 max-w-2xl border-drawn-alt"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Certificates Section -->
+        <section id="certificates" class="py-24 px-6 md:px-12 bg-sage/5">
+            <div class="mb-16 text-center">
+                <h2 class="section-title font-mono text-4xl md:text-5xl font-bold mb-4 text-ink reveal">Certificates</h2>
+                <div class="w-24 h-1 bg-terra mx-auto organic-blob mb-8 reveal"></div>
+            </div>
+            
+            <div id="certificates-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+                <!-- Skeleton Loader -->
+                <div class="border-drawn bg-ink/5 p-6 h-full flex flex-col relative overflow-hidden animate-pulse">
+                    <div class="w-full h-40 mb-6 organic-blob bg-ink/10 border-drawn-alt"></div>
+                    <div class="h-4 bg-ink/10 w-16 mb-4 border-drawn rounded"></div>
+                    <div class="h-6 bg-ink/10 w-3/4 mb-4 border-drawn-alt rounded"></div>
+                    <div class="h-4 bg-ink/10 w-1/2 mt-auto border-drawn rounded"></div>
+                </div>
+                <div class="border-drawn bg-ink/5 p-6 h-full flex flex-col relative overflow-hidden animate-pulse">
+                    <div class="w-full h-40 mb-6 organic-blob bg-ink/10 border-drawn"></div>
+                    <div class="h-4 bg-ink/10 w-16 mb-4 border-drawn-alt rounded"></div>
+                    <div class="h-6 bg-ink/10 w-2/3 mb-4 border-drawn rounded"></div>
+                    <div class="h-4 bg-ink/10 w-1/2 mt-auto border-drawn-alt rounded"></div>
+                </div>
+                <div class="border-drawn bg-ink/5 p-6 h-full flex flex-col relative overflow-hidden animate-pulse">
+                    <div class="w-full h-40 mb-6 organic-blob bg-ink/10 border-drawn-alt"></div>
+                    <div class="h-4 bg-ink/10 w-16 mb-4 border-drawn rounded"></div>
+                    <div class="h-6 bg-ink/10 w-3/4 mb-4 border-drawn-alt rounded"></div>
+                    <div class="h-4 bg-ink/10 w-1/2 mt-auto border-drawn rounded"></div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-32 px-6 md:px-12 text-center flex flex-col items-center">
+            <div class="w-full max-w-2xl mx-auto mb-16">
+                <h2 class="section-title font-mono text-5xl md:text-6xl font-bold mb-8 text-terra reveal">Let's build together</h2>
+                <p class="text-xl mb-12 text-ink/80 reveal">
+                    Always open to new projects, collaborations, or discussing architecture.
+                </p>
+                
+                <form id="contact-form" class="w-full max-w-md mx-auto flex flex-col gap-6 text-left">
+                    <div class="reveal">
+                        <label for="name" class="block font-mono text-sm mb-2 text-ink/80">Name</label>
+                        <input type="text" id="name" required class="w-full bg-transparent border-drawn-alt p-3 text-ink focus:outline-none focus:border-terra transition-colors cursor-none">
+                    </div>
+                    <div class="reveal">
+                        <label for="email" class="block font-mono text-sm mb-2 text-ink/80">Email</label>
+                        <input type="email" id="email" required class="w-full bg-transparent border-drawn-alt p-3 text-ink focus:outline-none focus:border-terra transition-colors cursor-none">
+                    </div>
+                    <div class="reveal">
+                        <label for="message" class="block font-mono text-sm mb-2 text-ink/80">Message</label>
+                        <textarea id="message" required rows="4" class="w-full bg-transparent border-drawn-alt p-3 text-ink focus:outline-none focus:border-terra transition-colors cursor-none resize-none"></textarea>
+                    </div>
+                    <div class="reveal mt-2 text-center">
+                        <button type="submit" class="bg-ink text-sand px-8 py-3 text-lg border-drawn hover:bg-terra hover:border-terra transition-colors cursor-none">
+                            Send Message
+                        </button>
+                    </div>
+                    <div id="form-success" class="hidden text-sage font-mono mt-4 text-center">
+                        Message sent successfully!
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-12 mt-12 border-t-2 border-ink/10 border-dashed">
+        <div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex flex-col items-center md:items-start text-center md:text-left">
+                <a href="#" class="font-mono font-bold text-3xl italic tracking-tight text-terra mb-2">FZ</a>
+                <p class="font-mono text-sm text-ink/60 italic">&copy; 2026 FatzDev. Clean code crafted with care.</p>
+            </div>
+            
+            <div class="flex gap-6 pb-6 md:pb-0 md:pr-16 lg:pr-24">
+                <a href="#" aria-label="LinkedIn" class="p-3 border-drawn hover:bg-sage/20 transition-colors text-ink cursor-none group">
+                    <svg class="w-6 h-6 group-hover:scale-110 transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                </a>
+                <a href="#" aria-label="GitHub" class="p-3 border-drawn-alt hover:bg-ocher/20 transition-colors text-ink cursor-none group">
+                    <svg class="w-6 h-6 group-hover:scale-110 transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.09c3.1-.3 6.3-1.5 6.3-7.2a5.8 5.8 0 0 0-1.6-4.1 5.7 5.7 0 0 0-.1-4s-1.3-.4-4 2a13.3 13.3 0 0 0-7 0c-2.7-2.4-4-2-4-2a5.7 5.7 0 0 0-.1 4 5.8 5.8 0 0 0-1.6 4.1c0 5.7 3.2 6.9 6.3 7.2a4.8 4.8 0 0 0-1 3.09V22"></path></svg>
+                </a>
+                <a href="#" aria-label="Twitter" class="p-3 border-drawn hover:bg-terra/20 transition-colors text-ink cursor-none group">
+                    <svg class="w-6 h-6 group-hover:scale-110 transition-transform" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Modal -->
+    <div id="project-modal" class="fixed inset-0 z-[200] bg-sand/80 backdrop-blur-sm flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 p-4 md:p-12">
+        <div class="bg-sand border-drawn w-full max-w-4xl max-h-full overflow-y-auto relative shadow-xl">
+            <button id="modal-close" class="absolute top-4 right-4 p-2 text-ink hover:text-terra transition-colors cursor-none z-10">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <div id="modal-content" class="flex flex-col md:flex-row h-full">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

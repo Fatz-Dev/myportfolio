@@ -1,0 +1,6 @@
+{
+  "name": "Portfolio",
+  "description": "A modern creative developer portfolio.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
